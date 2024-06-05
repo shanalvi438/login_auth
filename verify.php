@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         
         $stmt = $pdo->prepare("UPDATE users SET is_verified = 1, otp = NULL, otp_expiry = NULL WHERE email = ?");
         if ($stmt->execute([$email])) {
-            header('Location: theme/index.php');
+            header('Location: admin_dashboard.php');
         } else {
             echo "Failed to verify email.";
         }
